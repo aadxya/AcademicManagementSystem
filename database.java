@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class database {
     private final static String className = "oracle.jdbc.driver.OracleDriver";
-    private final static String url = "jdbc:postgresql://localhost:5432/armaan";
+    private final static String url = "jdbc:postgresql://localhost:5432/iitrpr";
     private final static String user = "postgres";
-    private final static String password = "armaan1011";
+    private final static String password = "iitrpr1011";
     private static Connection connection;
     private static Statement st;
 
