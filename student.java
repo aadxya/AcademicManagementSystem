@@ -3,9 +3,10 @@ import java.sql.*;
 import java.util.*;
 
 public class student {
+    //forming a new database and making a connection
     static database d = new database();
     static Statement st = d.getConnection();
-    static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in); 
     static String currYear = null, currSem = null;
 
     private static String serial_input(){
@@ -54,7 +55,9 @@ public class student {
             String login = sc.nextLine();
             System.out.println("Enter password-");
             String password = sc.nextLine();
+            //Resultset is a table of data represents result set retrieved from the query
             ResultSet rs = st.executeQuery("select student_pass from student where student_id ='" + login+"';");
+
             if(rs.next()){
                 String pass = rs.getString("student_pass");
                 if(pass.equals(password)){
@@ -73,7 +76,7 @@ public class student {
         String query = "select * from acadSess";
         ResultSet rs = st.executeQuery(query);
         rs.next();
-        currYear = rs.getString("currYear");
+        currYear = rs.getString("curr Year");
         currSem = rs.getString("currSem");
         while (true){
             System.out.println("1. View enrolled courses");
@@ -139,6 +142,7 @@ public class student {
                 String course_id = rs.getString("course_id");
                 String year = rs.getString("currYear");
                 String sem = rs.getString("sem");
+                //delet
                 query = "delete from " +course_id+year+sem+" where student_id = ('"+ID+"');";
                 try{
                     //--------
@@ -198,6 +202,7 @@ public class student {
         }
         gxc = gxc/c;
         System.out.println("CGPA is-!");
+        //if a student is in 1st sem - no cgpa to show
         if(flag){
             System.out.println(gxc);
         }
