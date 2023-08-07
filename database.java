@@ -21,17 +21,18 @@ public class database {
         if (connection == null) {
             try {
 //                Class.forName(className);
+                 
                 connection = DriverManager.getConnection(url, user, password);
                 st = connection.createStatement();
+                
+                System.out.println("Opened database successfully");
+               //Statement st = connection.createStatement();
 
-//            } catch (ClassNotFoundException ex) {
-//                ex.printStackTrace();
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
         }
-        System.out.println("Opened database successfully");
-        //Statement st = connection.createStatement();
+        
         return st;
     }
 }
